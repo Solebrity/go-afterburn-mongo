@@ -1,0 +1,17 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  mongo-function:
+    lang: go-afterburn
+    handler: ./mongo-function
+    image: vosmith/mongo-function
+    secrets:
+    - mongo-creds
+    requests:
+      memory: 24Mi
+      cpu: 100m
+    limits:
+      memory: 24Mi
+      cpu: 100m
